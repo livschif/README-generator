@@ -15,7 +15,7 @@
 
   ## Usage 
   Use inquirer from your command line to answer questions about your project.
-  <img src="./Develop/utils/readme-gen.gif"><br>
+  <img src="./readme-gen.gif"><br>
   Or view link here - [Screencastify](https://drive.google.com/file/d/11XCJerjScxTHBUE5i6Ym2bI27MaSuSCa/view)
 
   ## Installation 
