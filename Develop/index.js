@@ -1,8 +1,13 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 
-const { writeFile } = require('fs').promises;
- // function
+const fs = require('fs');
+
+const generatePage = require('./utils/generateMarkdown');
+
+ 
+//const licenses = ['MIT License', 'Boost Software License 1.0', 'The Unlicense', 'N/A']
+
 const promptUser = () => {
     return inquirer.prompt([
         {
@@ -12,17 +17,12 @@ const promptUser = () => {
         },
         {
             type: 'input',
-            name: 'descriptions',
+            name: 'description',
             message: 'Provide a short description explaining the what, why, and how of your project.'
         },
-        // {
-        //     type: 'input',
-        //     name: 'table of contents',
-        //     message: '',
-        // },
         {
             type: 'input',
-            name: 'installation',
+            name: 'install',
             message: 'What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.',
         },
         {
@@ -49,62 +49,49 @@ const promptUser = () => {
 
         },
         {
-            // search how to do multiple choice questions
             type: 'input',
             name: 'github',
             message: 'Enter your GitHub username.',
 
         },
         {
-            type: 'input',
+            type: 'list',
             name: 'license',
             message: 'Choose a license for your project. If you are unsure then just choose MIT',
-        },
+            choices: ['MIT_License', 'Boost_Software_License_1.0', 'The_Unlicense'],
+            validate: nameInput => {
+                if(nameInput) {
+                    return true;
+                } else {
+                    console.log('Please choose a license.')
+                    return false;
+                }
+            }
+        }
     ]);  
 };
 
-const generateReadme = 
-`# ${promptUser.title}
-
-    ## Table of Contents
-    - [Project description](#Description)
-    - [Usage](#Usage)
-    - [Contributing](#Contributing)
-    - [Installation](#Installation)
-    - [Questions](#Questions)
-    - [License](#License)
-    
-    ## Description 
-    ${answer.description}
-
-    ## Usage 
-    ${answers.usage}
-
-    ## Installation 
-    ${answers.installation}
-
-    ## Contributing
-    ${answers.contributing}
-
-    ## Questions
-    ${answers.email}
-    ${answers.github}
-
-    ## License
-    ${answers.license}`;
-// const fs = require('fs');
-
-// TODO: Create an array of questions for user input
-const questions = [
-
-];
-
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
-
-// TODO: Create a function to initialize app
-function init() {}
+const writeFile = data => {
+    fs.writeFile('README.md', data, err => {
+        if (err) {
+            console.log(err);
+            return;
+        } else {
+            console.log('Your README has been created!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+        }
+    }) 
+};
 
 // Function call to initialize app
-init();
+promptUser()
+.then(answers => {
+    return generatePage(answers);
+})
+.then(data => {
+    return writeFile(data);
+})
+.catch(err => {
+    console.log(err)
+})
   
