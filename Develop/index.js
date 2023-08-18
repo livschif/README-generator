@@ -1,12 +1,10 @@
-// TODO: Include packages needed for this application
+
 const inquirer = require('inquirer');
 
 const fs = require('fs');
 
 const generatePage = require('./utils/generateMarkdown');
 
- 
-//const licenses = ['MIT License', 'Boost Software License 1.0', 'The Unlicense', 'N/A']
 
 const promptUser = () => {
     return inquirer.prompt([
@@ -71,14 +69,13 @@ const promptUser = () => {
     ]);  
 };
 
-// TODO: Create a function to write README file
 const writeFile = data => {
     fs.writeFile('README.md', data, err => {
         if (err) {
             console.log(err);
             return;
         } else {
-            console.log('Your README has been created!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+            console.log('Your README has been created!')
         }
     }) 
 };
