@@ -1,4 +1,4 @@
-# Your Project Title
+# MVC Tech Blog
 
  ![License](https://img.shields.io/badge/license-MIT_License-blue)
   
@@ -11,20 +11,20 @@
   - [License](#license)
     
   ## Description 
-  Your GitHub profile is an extremely important aspect of your public identity as a developer. A well-crafted one allows you to show off your work to other developers as well as potential employers. An important component of your GitHub profile—and one that many new developers often overlook—is the README.md file.
+  I built this CMS-Style blog site where developers can publish their blog posts and comment on other developers' posts as well. This app follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
   ## Usage 
-  To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, use the relative filepath.
+  HTML, CSS, Bootstrap
 
   ## Installation 
-  What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+  To instal run a npm i and then a npm start to start up the server.
 
   ## Contributing
-  If you created an application or package and would like other developers to contribute it, you will want to add guidelines for how to do so.
+  Handlebars.js
 
   ## Questions
-  example@example.com
-  livschif
+  If you have any questions you can email me at oliviaschif@gmail.com
+  also check out my GitHub 
 
   ## License
   MIT_License
